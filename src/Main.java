@@ -10,6 +10,17 @@ public class Main {
         String s= "Welcome to Java Programming!";
         System.out.println(s);
 
+        String name = "budireddy venkata gangadhara reddy";
+        String[] parts = name.split(" ");
+        String[] b = new String[4];
+        for(int i =0; i < parts.length; i++) {
+            String p = parts[i];
+            String a = p.substring(0,1).toUpperCase() + p.substring(1);
+            b[i]=a;
+        }
+        String capitalized = String.join(" ", b);
+        System.out.println(capitalized);
+
         System.out.println(s.charAt(6));
         System.out.println(s.indexOf('a'));
         System.out.println(s.lastIndexOf('a'));
