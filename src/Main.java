@@ -6,6 +6,22 @@ public class Main {
         Person venkat = new Person("Venkat", 24, "Vijayawada");
         System.out.println(venkat);
 
+        //break
+        int table = 2;
+        int x = 10;
+        for(int i =1;i<=10;i++) {
+            if(i==5) break;
+            System.out.println(table+" x "+i+" = "+(table*i));
+        }
+
+        //continue
+        int table1 = 2;
+        int y = 10;
+        for(int i =1;i<=10;i++) {
+            if(i==5) continue;
+            System.out.println(table+" x "+i+" = "+(table*i));
+        }
+
         //Strings
         String s= "Welcome to Java Programming!";
         System.out.println(s);
@@ -20,6 +36,10 @@ public class Main {
         }
         String capitalized = String.join(" ", b);
         System.out.println(capitalized);
+
+        String untrimmed = "   Hello, World!   ";
+        String trimmed = untrimmed.trim();
+        System.out.println(trimmed);
 
         System.out.println(s.charAt(6));
         System.out.println(s.indexOf('a'));
@@ -65,7 +85,7 @@ public class Main {
         System.out.println("safeEquals(null, null): " + StringUtils.safeEquals(null, null));
         System.out.println("safeEquals('a', 'A'): " + StringUtils.safeEquals("a", "A"));
         System.out.println("safeSubstring('Hello', 1, 3): '" + StringUtils.safeSubstring("Hello",1,3) + "'");
-        System.out.println("truncate('This is a very long text', 10, '...'): '" + StringUtils.truncate("This is a very long text", 10, "...") + "'");
+        System.out.println("truncate('This is a very long text', 10, '....'): '" + StringUtils.truncate("This is a very long text", 10, "....") + "'");
         System.out.println("capitalize('java'): '" + StringUtils.capitalize("java") + "'");
         System.out.println("toTitleCase('hello world from java'): '" + StringUtils.toTitleCase("hello world from java") + "'");
         System.out.println("normalizeWhitespace('  a   b\t\n c  '): '" + StringUtils.normalizeWhitespace("  a   b\t\n c  ") + "'");
