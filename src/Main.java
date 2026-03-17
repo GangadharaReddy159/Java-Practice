@@ -6,6 +6,13 @@ public class Main {
         Person venkat = new Person("Venkat", 24, "Vijayawada");
         System.out.println(venkat);
 
+        //string character replace
+
+        String fruit = "Banana";
+        String fruit1 = fruit.toUpperCase();
+        String fruit2 = fruit1.replace("A","O");
+        System.out.println(fruit2);
+
         //break
         int table = 2;
         int x = 10;
