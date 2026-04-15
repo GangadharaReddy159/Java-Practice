@@ -30,7 +30,7 @@ public class JavaStreams {
         //create a list of 6 employees with name, age, salary and city, then sort them by age and print the sorted list.
         List<Person> employees = List.of(
             new Person("Alice", 30, "New York"),
-            new Person("Bob", 25,  "Los Angeles"),
+            new Person("Bob", 25,  "Chicago"),
             new Person("Charlie", 35, "Chicago"),
             new Person("David", 28,  "Houston"),
             new Person("Eve", 32,  "Phoenix"),
