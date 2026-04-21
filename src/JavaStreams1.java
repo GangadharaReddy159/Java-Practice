@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class JavaStreams1 {
 
@@ -32,6 +33,7 @@ public class JavaStreams1 {
         System.out.println(sortedNames);
 
         String random = "programming";
+        String str = "Happy weekend";
 
         //finding the first repeating character in the string
         Character firstRepeating = random.chars(). mapToObj(c->(char)c)
@@ -49,6 +51,21 @@ public class JavaStreams1 {
         Set<Integer> dNums = Arrays.stream(nums1).boxed().collect(Collectors.toSet());
         List<Integer> missingNums = IntStream.rangeClosed(min, max).filter(n->!dNums.contains(n)).boxed().toList();
         System.out.println(missingNums);
+
+        //reversing a string using reduce
+        String reduce = Stream.of(str.split("")).reduce("",(a,b)->b+a);
+        System.out.println(reduce);
+
+        //join list of strings with a delimiter
+        List<String> words = List.of("Hello", "World", "Java", "Streams");
+        String joined = words.stream().collect(Collectors.joining("||"));
+        System.out.println(joined);
+
+        //merge 2 lists and remove duplicates
+        List<String> list1 = List.of("Alice", "Bob", "Charlie");
+        List<String> list2 = List.of("Bob", "David", "Eve");
+        List<String> merged = Stream.concat(list1.stream(), list2.stream()).distinct().collect(Collectors.toList());
+        System.out.println(merged);
 
     }
 }
