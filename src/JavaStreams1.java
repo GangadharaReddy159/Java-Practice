@@ -67,5 +67,18 @@ public class JavaStreams1 {
         List<String> merged = Stream.concat(list1.stream(), list2.stream()).distinct().collect(Collectors.toList());
         System.out.println(merged);
 
+        //find the missing number in array
+        int[] arr = {3,0,1,4,5};
+        int expectedSum = IntStream.rangeClosed(0, arr.length).sum();
+        int actualSum = Arrays.stream(arr).sum();
+        int missingNumber = expectedSum - actualSum;
+        System.out.println(missingNumber);
+
+        //find the common elements in 2 lists
+        List<Integer> l1 = List.of(1,2,3,4,5,6);
+        List<Integer> l2 = List.of(4,5,6,7,8,9);
+        List<Integer> common = l1.stream().filter(l2::contains).toList();
+        System.out.println(common);
+
     }
 }
