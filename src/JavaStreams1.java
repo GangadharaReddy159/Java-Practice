@@ -1,10 +1,7 @@
 import org.w3c.dom.ls.LSOutput;
 
 import java.sql.SQLOutput;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -79,6 +76,12 @@ public class JavaStreams1 {
         List<Integer> l2 = List.of(4,5,6,7,8,9);
         List<Integer> common = l1.stream().filter(l2::contains).toList();
         System.out.println(common);
+
+        //find the count of highest concurring int 1 in the array
+        int[] arr1 = {1,2,3,1,2,1,1,3,4,5};
+        int mostFrequent = Arrays.stream(arr1).boxed().collect(Collectors.groupingBy(n->n, Collectors.counting()))
+                .entrySet().stream().max(Comparator.comparing(Map.Entry::getValue)).map(Map.Entry::getKey).orElse(null);
+        System.out.println(mostFrequent);
 
     }
 }
