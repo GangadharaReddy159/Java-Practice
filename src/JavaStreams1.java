@@ -83,5 +83,19 @@ public class JavaStreams1 {
                 .entrySet().stream().max(Comparator.comparing(Map.Entry::getValue)).map(Map.Entry::getKey).orElse(null);
         System.out.println(mostFrequent);
 
+        //an array has repeated 0 and 1, find the highest count of consecutive 1s in the array
+        int[] arr2 = {1,1,0,1,1,1,0,1,1};
+        int maxConsecutiveOnes = 0;
+        int currentCount = 0;
+        for (int n : arr2) {
+            if (n == 1) {
+                currentCount++;
+                maxConsecutiveOnes = Math.max(maxConsecutiveOnes, currentCount);
+            } else {
+                currentCount = 0;
+            }
+        }
+        System.out.println(maxConsecutiveOnes);
+
     }
 }
