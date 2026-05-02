@@ -97,5 +97,27 @@ public class JavaStreams1 {
         }
         System.out.println(maxConsecutiveOnes);
 
+        //create a list of cities where each city has a city name and population, then find the city with the highest population and print its name.
+        List<City> cities = List.of(
+            new City("New York", 800000),
+            new City("Los Angeles", 400000),
+            new City("Chicago", 27000000),
+            new City("Houston", 2300000),
+            new City("Phoenix", 16000000),
+                new City("Vegas", 1000000)
+        );
+
+        Map<String, List<City>> catergorizedCities = cities.stream().collect(Collectors.groupingBy(city->{
+            if(city.population <= 1000000) return "SMALL";
+            else if(city.population > 1000000 && city.population < 10000000) return "MEDIUM";
+            else return "LARGE";
+        }));
+
+        catergorizedCities.forEach((category, cityList)->{
+            System.out.println(category+" "+cityList);
+        });
+
     }
 }
+
+
