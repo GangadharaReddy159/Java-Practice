@@ -1,8 +1,6 @@
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
-import static com.sun.org.apache.xalan.internal.lib.ExsltSets.distinct;
 import static java.util.Arrays.stream;
 
 public class JavaStrings {
