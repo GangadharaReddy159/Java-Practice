@@ -1,7 +1,8 @@
-import java.io.IOException;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
-public class Threads {
-}
+import static java.util.Arrays.stream;
 
 class MyThread {
     public static void main(String[] args) throws InterruptedException {
@@ -15,5 +16,23 @@ class MyThread {
         t2.join(1000); //main thread waits for t2 to finish for up to 1 second, then continues even if t2 is still running
 
         System.out.println("Main thread finished");
+
+        String s = "programming";
+        stream(s.split("")).collect(Collectors.groupingBy(c->c, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(f->f.getValue()>1)
+                .map(Map.Entry::getKey)
+                .forEach(System.out::println);
+        String repeated = "aabbcddddeee";
+        String nonrepeated = stream(repeated.split("")).collect(Collectors.groupingBy(r->r, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(c->c.getValue()==1)
+                .map(Map.Entry::getKey)
+                .findFirst().orElse(null);
+
+        System.out.println(nonrepeated);
+
     }
 }
