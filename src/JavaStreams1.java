@@ -117,7 +117,61 @@ public class JavaStreams1 {
             System.out.println(category+" "+cityList);
         });
 
+        int[] cal = {1,2,3,4,5,6,7,8,9,10,11,12,13};
+        int sumOfNums = Arrays.stream(cal).skip(5).sum();
+        int sumOfAll = Arrays.stream(cal).limit(5).sum();
+        System.out.println(sumOfNums);
+        System.out.println(sumOfAll);
+
+        String findPrime = isPrime(17);
+        System.out.println(findPrime);
+
+
+        ListNode sortedMergedList = mergeTwoLists(new ListNode(1, new ListNode(3, new ListNode(5))), new ListNode(2, new ListNode(4, new ListNode(6))));
+        System.out.println(sortedMergedList.val); // Output: 1
+
+    }
+
+    public static String isPrime(int n){
+        int count = 0;
+        for(int i=1;i<=n;i++){
+            if(n%i==0) count++;
+        }
+        return count==2 ? "Prime" : "Not Prime";
+    }
+
+    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode dummy = new ListNode(-1);
+        ListNode current = dummy;
+
+        if(list1!=null && list2!=null){
+            if(list1.val<=list2.val){
+                current.next = list1;
+                list1=list1.next;
+            }
+            else{
+                current.next=list2;
+                list2=list2.next;
+            }
+            current=current.next;
+        }
+
+        if(list1!=null){
+            current.next=list1;
+        }else if(list2!=null){
+            current.next=list2;
+        }
+
+        return dummy.next;
     }
 }
+
+ class ListNode {
+    int val;
+    ListNode next;
+      ListNode() {}
+      ListNode(int val) { this.val = val; }
+      ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ }
 
 
