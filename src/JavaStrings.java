@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
 import static java.util.Arrays.stream;
 
 public class JavaStrings {
@@ -72,5 +73,17 @@ public class JavaStrings {
         //find the second highest age of the people in the list
         Optional<Integer> secondHighestAge = totalPeople.stream().flatMap(List::stream).map(Person::getAge).distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst();
         System.out.println(secondHighestAge.orElse(null));
+
+        String[] fruits = {"apple", "avacado", "banana", "beetroot", "grape", "guava"};
+        Map<Character, List<String>> filterdFruits = stream(fruits).
+                collect(Collectors.groupingBy(s->s.charAt(0)));
+        System.out.println(filterdFruits);
+        Map<Character, Long> filterdCount = stream(fruits)
+                .collect(Collectors.groupingBy(s->s.charAt(0),Collectors.counting()));
+        System.out.println(filterdCount);
+
+        Map<String, Long> freqFruits = stream(fruits)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(freqFruits);
     }
 }
