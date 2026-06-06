@@ -8,6 +8,13 @@ public class JavaStrings {
 
     public static void main(String[] args) {
 
+        String s10 = "programming";
+        String s20 = "programm"+"ing";
+        String s30 = "program";
+        String s40 = s30+"ming";
+        System.out.println(s10==s20+" ");
+        System.out.println(s10==s40);
+
         //reverse a string using string builder
         String s1 = "Advanced";
         String reversed = new StringBuilder(s1).reverse().toString();

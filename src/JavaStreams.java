@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static java.util.Arrays.stream;
@@ -45,6 +46,12 @@ public class JavaStreams {
 
         Map<String, List<Person>> employeesByCity = employees.stream().collect(Collectors.groupingBy(Person::getCity, Collectors.toList()));
         System.out.println("Employees by City: "+employeesByCity);
+
+        //pattern strings
+        String str = "a2b1y3z1";
+        String output = Pattern.compile("(\\D)(\\d+)").matcher(str).results()
+                .map(m->m.group(1).repeat(Integer.parseInt(m.group(2)))).collect(Collectors.joining());
+        System.out.println(output);
 
     }
 }

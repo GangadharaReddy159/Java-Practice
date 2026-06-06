@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static java.util.Arrays.stream;
 
@@ -84,9 +82,6 @@ public class JavaArrays {
         }
         System.out.println("Divisors of " + d + " are: " + divisors);
 
-        int p = 2;
-        boolean prime = findPrimeOrNot(p);
-        System.out.println(p + " is prime: " + prime);
 
     }
 
