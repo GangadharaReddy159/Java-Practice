@@ -67,6 +67,13 @@ public class JavaStrings {
                 new Person("Reddy", 24, "Vijayawada")
         );
 
+        List<Person> people3 = List.of(
+                new Person("Venky", 25, "Vijayawada"),
+                new Person("Bablu", 24, "Vijayawada"),
+                new Person("Gangadhara", 24, "Vijayawada"),
+                new Person("Reddy", 24, "Vijayawada")
+        );
+
 
         List<List<Person>> totalPeople = List.of(people, people2);
 
@@ -92,5 +99,12 @@ public class JavaStrings {
         Map<String, Long> freqFruits = stream(fruits)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println(freqFruits);
+
+        String myName = "VveeEnNnKKkyyYY";
+        String resName = stream(myName.split("")).map(s->s.toLowerCase()).distinct().collect(Collectors.joining());
+        System.out.println(resName);
+        
+        List<Person> orderedPerson = people3.stream().sorted(Comparator.comparing(Person::getAge).thenComparing(Person::getName)).toList();
+        System.out.println(orderedPerson);
     }
 }
