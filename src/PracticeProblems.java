@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -27,9 +25,39 @@ public class PracticeProblems {
         System.out.println(Arrays.toString(arr1));
 
         String str = "a2b1y3z1";
-        String result = Pattern.compile("(\\D)(\\d+)").matcher(str).results()
+        String result = Pattern.compile("([a-z])(\\d+)").matcher(str).results()
                 .map(m->m.group(1).repeat(Integer.parseInt(m.group(2)))).collect(Collectors.joining());
         System.out.println(result);
+
+        String str1 = "3[ab]2[xyz]";
+        String result1 = Pattern.compile("(\\d+)\\[([a-z]+)\\]").matcher(str1).results()
+                .map(m->m.group(2).repeat(Integer.parseInt(m.group(1)))).collect(Collectors.joining());
+        System.out.println(result1);
+
+        String b = "dbace";
+        String s = stream(b.split("")).sorted().collect(Collectors.joining());
+        System.out.println(s);
+
+
+        int[] nums = {1,2,2,3,3,3};
+        int k =2;
+        Map<Integer, Integer> mapR = new HashMap<>();
+        for(int i:nums) {
+            mapR.put(i, mapR.getOrDefault(i, 0) + 1);
+        }
+        int[] result2 = mapR.entrySet().stream().sorted(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()))
+                .limit(k)
+                .mapToInt(Map.Entry::getKey)
+                .toArray();
+        System.out.println(Arrays.toString(result2));
+
+        String slash = "3#abc";
+        int slashIndex = slash.indexOf("#",0);
+        System.out.println(slashIndex);
+
+        int[] kth = {1,2,3,4,5};
+        //sort the array in descending order
+
     }
 }
 
