@@ -2,7 +2,6 @@ package DSA;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.OptionalInt;
 
 import static java.util.Arrays.stream;
 
@@ -83,6 +82,35 @@ public class MyArrays {
         }
 
         System.out.println(start);
+
+        int[] input = {1,2,4,7,7,5};
+        int small = Integer.MAX_VALUE;
+        int secondSmall =Integer.MAX_VALUE;
+        int large =Integer.MIN_VALUE;
+        int secondLarge =Integer.MIN_VALUE;
+        for(int i:input){
+            if(i< small){
+                secondSmall =small;
+                small = i;
+            }else if(i<secondSmall && i!= small){
+                secondSmall =i;
+            }
+            if(i> large){
+                secondLarge=large;
+                large=i;
+            }else if(i>secondLarge && i!=large){
+                secondLarge=i;
+            }
+        }
+        System.out.println(small +" "+ secondSmall +" "+ large +" "+ secondLarge);
+
+        int[] rotate = {1,2,3,4,5};
+        int val = rotate[0];
+        for(int i=1;i<rotate.length;i++){
+            rotate[i-1]=rotate[i];
+        }
+        rotate[rotate.length-1]=val;
+        System.out.println(Arrays.toString(rotate));
 
 
     }

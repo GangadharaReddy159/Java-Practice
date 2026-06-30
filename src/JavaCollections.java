@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class JavaCollections {
 
@@ -72,6 +74,10 @@ public class JavaCollections {
         while(numbers.hasNext()){
             System.out.println(numbers.next());
         }
+
+        List<Integer> missed = List.of(0,1,2,4,5);
+        int n = missed.size();
+        List<Integer> missingNums = IntStream.rangeClosed(0,n).filter(i->!missed.contains(i)).boxed().collect(Collectors.toUnmodifiableList());
 
 
         //Set

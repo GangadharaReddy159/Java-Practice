@@ -85,16 +85,6 @@ public class JavaArrays {
 
     }
 
-    private static boolean findPrimeOrNot(int p) {
-        int cnt=0;
-        for(int i=1;i<=(int)(Math.sqrt(p));i++){
-            if(p%i==0){
-                cnt++;
-                if(i!=p/i) cnt++;
-            }
-        }
-        return cnt>2 ? false : true;
-    }
 
     private static int findGCDofNumber(int n1, int n2) {
         while(n1>0 && n2>0) {

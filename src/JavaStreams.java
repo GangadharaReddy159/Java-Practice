@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import static java.util.Arrays.stream;
 
 public class JavaStreams {
-    public static <Employee> void main(String[] args) {
+    public static void main(String[] args) {
         int[] nums = {1,2,3,4,5};
         String[] words = {"Hello", "World", "Java", "Streams"};
 
@@ -17,7 +17,7 @@ public class JavaStreams {
         System.out.println(UpdatedWords);
 
         String[] names = {"Alice", "Bob", "Charlie", "David", "Eve", "Frank"};
-        List<String> UpdatedNames = stream(names).sorted(Comparator.comparing(s->s.length())).collect(Collectors.toList());
+        List<String> UpdatedNames = stream(names).sorted(Comparator.comparing(String::length)).collect(Collectors.toList());
         System.out.println(UpdatedNames);
 
         //sort names in descending order of length
@@ -52,6 +52,19 @@ public class JavaStreams {
         String output = Pattern.compile("(\\D)(\\d+)").matcher(str).results()
                 .map(m->m.group(1).repeat(Integer.parseInt(m.group(2)))).collect(Collectors.joining());
         System.out.println(output);
+
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        List<Integer> numResult = numbers.stream().filter(n->n%2!=0).collect(Collectors.toList());
+        System.out.println(numResult);
+
+        List<String> namesP = Arrays.asList("Alice", "Bob", "Charlie", "David", "Edward");
+        List<String> namesResult = namesP.stream().filter(s->s.length()>4).map(c->c.toUpperCase()).collect(Collectors.toList());
+        System.out.println(namesResult);
+
+        Map<String, List<String>> employeesGroupedByCity = employees.stream().collect(Collectors.groupingBy(Person::getCity, Collectors.mapping(e->e.getName()+" "+e.getAge(), Collectors.toList())));
+        System.out.println(employeesGroupedByCity);
+
+
 
     }
 }
